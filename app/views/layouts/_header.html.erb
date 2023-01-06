@@ -1,11 +1,11 @@
 <header>
   <div class="container">
 
-    <li><%= link_to "ホーム", root_path %></li>
+    <li><%= link_to "ホーム", static_pages_home_path %></li>
     <li><%= link_to "サインアップ", new_user_registration_path %></li>
 
     <% if user_signed_in? %>
-      <li><%= link_to "ホーム", root_path %></li>
+      <li><%= link_to "ホーム", static_pages_home_path %></li>
       <li><%= link_to "プロフィール編集", edit_user_registration_path %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
