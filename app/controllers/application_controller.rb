@@ -11,4 +11,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
   end
 
+  #ゲストユーザ特定するためresourceを用いる
+  #パスワード再設定メール機能はログインする前にできるので、フォームに書いたemailアドレスがゲストユーザかどうかをチェックするのでparams
+  def check_guest
+    email = resource&.email || params[:user][:email].downcase
+    if email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザの編集・削除はできません。'
+    end
+  end
+
+
 end

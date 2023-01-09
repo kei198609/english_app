@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+  before_action :check_guest, only: [:create] #ゲストユーザの場合、パスワード再設定メールの送信機能を使えないようにするため
+
+
+
   # GET /resource/password/new
   # def new
   #   super

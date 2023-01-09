@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
-    registrations: 'users/registrations'
-    }
+    registrations: 'users/registrations' #deviseのregistrationsコントローラーの部分が、users/registrationsを参照するようになる
+  }
+
+  devise_scope :user do #deviseのsessionsコントローラーに新しいactionを追加するためにはdevise_scopeと書く
+    post 'users/guest_sign_in' => 'users/sessions#new_guest'
+  end
 
   devise_scope :user do
     get 'mypages/home' => 'users/registrations#home'
