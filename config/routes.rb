@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'lists/index'
   root to: 'tops#index'
+
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -27,4 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
+
+
+  resources :lists
 end

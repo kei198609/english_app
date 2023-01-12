@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
 
-  def new_guest #ゲストユーザいれば取り出すなければ作る
+  def new_guest #ゲストユーザいれば取り出す,なければ作る
     user = User.guest #guestはuserモデルに定義したメソッド
     sign_in user #ゲストユーザをログイン
     redirect_to root_path, notice: 'ゲストユーザとしてログインしました。'
