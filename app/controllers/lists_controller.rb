@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
   def index
-    @lists = User.all
+    @lists = User.page(params[:page]).per(5)
   end
 end

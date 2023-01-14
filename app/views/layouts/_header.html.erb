@@ -3,7 +3,8 @@
 
     <% if user_signed_in? %>
       <li><%= link_to "ホーム", root_path %></li>
-      <li><%= link_to "プロフィール編集", edit_user_registration_path %></li>
+      <li><%= link_to "ユーザ一覧", lists_path %></li>
+      <li><%= link_to "設定", edit_user_registration_path %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
       <li><%= link_to "ホーム", root_path %></li>
