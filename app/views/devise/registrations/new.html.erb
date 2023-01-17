@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :職種 %><br />
+    <%= f.select :occupation, User.occupations.keys, {} %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
